@@ -99,7 +99,7 @@ public class LoginPanal extends Application {
                     stage.show();
                     primaryStage.close();
                 }else{
-                    ManagerPanal mp = new ManagerPanal();
+                    SalesmanPanel mp = new SalesmanPanel();
                     Stage stage = new Stage();
                     mp.start(stage);
                     stage.show();

@@ -16,18 +16,21 @@ public class Product {
     String name;
     float price;
     int count;
+    int expiry;
     Date expiry_date ;
     int discount;
     String department;
     int Number_of_sales;
+    public Product(){}
 
-    public Product(int id_P, String name_P, float price, int count, Date expiry_date, int discount, String department) {
-        this.id = id_P;
+    public Product(String name_P, float price, int count, Date expiry_date, String department, int expiry, int Number_of_sales) {
         this.name = name_P;
         this.price = price;
         this.count = count;
+        this.expiry = expiry;
+        this.Number_of_sales = Number_of_sales;
         this.expiry_date = expiry_date;
-        this.discount = discount;
+        this.discount = 0;
         this.department = department;
         this.Number_of_sales = 0;
     }

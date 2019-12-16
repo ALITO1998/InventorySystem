@@ -11,38 +11,27 @@ import java.sql.Date;
  *
  * @author hp
  */
-public class User {
+public class person {
     int id ;
     String name;
     Date birthdate;
     String address;
-    int salary;
-    int bonus;
     String phonenumber;
     String Email;
     String Password;
-    Department department;
-    public User(){}
 
-    public User(String name, Date birthdate, String address, int salary, int bonus, String phonenumber, String Email, Department department) {
-        this.id = id;
+    public person() {
+    }
+    public person(String name, Date birthdate, String address, String phonenumber, String Email) {
         this.name = name;
         this.birthdate = birthdate;
         this.address = address;
-        this.salary = salary;
-        this.bonus = bonus;
         this.phonenumber = phonenumber;
         this.Email = Email;
-        this.Password = "12345";
-        this.department = department;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -69,22 +58,6 @@ public class User {
         this.address = address;
     }
 
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public int getBonus() {
-        return bonus;
-    }
-
-    public void setBonus(int bonus) {
-        this.bonus = bonus;
-    }
-
     public String getPhonenumber() {
         return phonenumber;
     }
@@ -108,19 +81,17 @@ public class User {
     public void setPassword(String Password) {
         this.Password = Password;
     }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
+    
+    public boolean login (String id,String pass){
+        String q ;
+        if(id.charAt(0) == '1'){
+            q = "SELECT * FROM manager";
+        }else if(id.charAt(0)=='2'){
+            q = "SELECT * FROM salesman";
+        }else{
+            return  false;
+        }
+        return DBConnection.login(id, pass, q);
     }
     
 }
-
-   
-    
-    
-    
-

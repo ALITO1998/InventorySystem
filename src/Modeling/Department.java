@@ -14,7 +14,18 @@ import java.util.ArrayList;
 public class Department {
     int id ;
     String name;
-    ArrayList<Employee> employees = new ArrayList<>();
+    ArrayList<Salesman> employees = new ArrayList<>();
     ArrayList<Product> products = new ArrayList<>();
+    
+    public ArrayList<ArrayList<Integer>> generate_report(String rtype)
+    {
+        Report r = new Report();
+        if(rtype.equals("Salesman")){
+            return r.generatesalesmanreport(employees);
+        }else if(rtype.equals("Product")){
+            return r.generateproductreport(products);
+        }
+        return null;
+    }
     
 }

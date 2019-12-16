@@ -22,28 +22,35 @@ public class Report {
     String title = new String();
     String Xtitle = new String();
     String Ytitle = new String();
-    public BarChart generateBarChartSample (ArrayList<Object> o){
+    public ArrayList<ArrayList<Integer>> generatesalesmanreport (ArrayList<Salesman> o){
+        ArrayList<ArrayList<Integer>> al = new ArrayList<ArrayList<Integer>>();
         Ss = new ArrayList<>();
         Is = new ArrayList<>();
-        if (o.get(0) instanceof Employee){
-            title = "Report of Employee";
-            Xtitle = "IDs of Employee";
-            Ytitle = "Rate of Employees";
-            for (int i = 0; i < o.size(); i++) {
-                Ss.add(i, ((Employee)o.get(i)).id);
-                Is.add(i, ((Employee)o.get(i)).rate);
-            }
-        }else{
-            title = "Report of Product";
-            Xtitle = "IDs of Product";
-            Ytitle = "Number of sales of Products";
-            for (int i = 0; i < o.size(); i++) {
-                Ss.add(i, ((Product)o.get(i)).id);
-                Is.add(i, ((Product)o.get(i)).Number_of_sales);
-            }
+        title = "Report of Employee";
+        Xtitle = "IDs of Employee";
+        Ytitle = "Rate of Employees";
+        for (int i = 0; i < o.size(); i++) {
+            Ss.add(i, ((Salesman)o.get(i)).id);
+            Is.add(i, ((Salesman)o.get(i)).rate);
         }
-        BarChartSample bcs = new BarChartSample(Is, Ss, title, Xtitle, Ytitle);
-        return bcs.start();
-        
-    } 
+        al.add(Ss);
+        al.add(Is);
+        return al;
+    }
+
+    public ArrayList<ArrayList<Integer>> generateproductreport (ArrayList<Product> o){
+        ArrayList<ArrayList<Integer>> al = new ArrayList<ArrayList<Integer>>();
+        Ss = new ArrayList<>();
+        Is = new ArrayList<>();
+        title = "Report of Product";
+        Xtitle = "IDs of Product";
+        Ytitle = "Number of sales of Products";
+        for (int i = 0; i < o.size(); i++) {
+            Ss.add(i, ((Product)o.get(i)).id);
+            Is.add(i, ((Product)o.get(i)).Number_of_sales);
+            }
+        al.add(Ss);
+        al.add(Is);
+        return al;
+    }
 }
